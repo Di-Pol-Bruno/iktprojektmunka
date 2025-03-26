@@ -1,0 +1,24 @@
+gépek: 580
+2 router 
+emelet / switch 2
+
+etherechanell
+
+22 c osztályú ip cím
+ip cim: 32-64
+
+10*2*(20+2+3+4) 32 64 128 256 
+tanari: 80 -> 128
+előadói: 40 -> 64
+ap: 60 -> 64
+
+1 wifi -> 128
+1 hálozati eszkösz(admin) -> 64
+1 native
+1 tanari -> 128
+1 előadói -> 64
+20 gépterem -> 20 * 32
+1 gépterem = 32
+
+
+
