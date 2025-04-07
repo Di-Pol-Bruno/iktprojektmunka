@@ -1,0 +1,93 @@
+ena
+conf t
+host gepszoba
+ip domain-name egyetem.net
+banner motd "te itt be nem."
+enable secret UU@jmAJ7CaFE-67x
+enable password UU@jmAJ7CaFE-67x
+enable password encryption
+username admin password UU@jmAJ7CaFE-67x
+line con 0 
+password UU@jmAJ7CaFE-67x
+login local
+logging synchronous
+exit
+line vty 0 15 
+password UU@jmAJ7CaFE-67x
+login local
+logging synchronous
+exit
+crypto key generate rsa 
+1024
+line vty 0 15
+transport input ssh
+exit
+int vlan 255
+ip add 192.168.23.66
+exit
+ip default-gateway 192.168.23.65
+
+
+
+
+ip ssh version 2
+vlan 1
+name gepszoba1
+vlan 2
+name gepszoba2
+vlan 3
+name gepszoba3
+vlan 4
+name gepszoba4
+vlan 5
+name gepszoba5
+vlan 6
+name gepszoba6
+vlan 7
+name gepszoba7
+vlan 8
+name gepszoba8
+vlan 9
+name gepszoba9
+vlan 10
+name gepszoba10
+vlan 11
+name gepszoba11
+vlan 12
+name gepszoba12
+vlan 13
+name gepszoba13
+vlan 14
+name gepszoba14
+vlan 15
+name gepszoba15
+vlan 16
+name gepszoba16
+vlan 17
+name gepszoba17
+vlan 18
+name gepszoba18
+vlan 19
+name gepszoba19
+vlan 20
+name gepszoba20
+vlan 200
+name tanari
+vlan 255
+name admin
+vlan 300
+name wifi
+vlan 400
+name passive
+vlan 500
+name eloado
+vlan 900
+name native
+int f0/1-20
+switchport mode access
+switchport access vlan 1
+exit
+int g0/1
+switchport mode trunk
+switchport trunk native vlan 900
+switchport trunk allowed vlan 1,255
