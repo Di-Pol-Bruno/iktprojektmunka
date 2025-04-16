@@ -1,0 +1,116 @@
+ROUTER CONFIG
+ena
+conf t
+host gepszoba
+ip domain-name egyetem.net
+banner motd "te itt be nem."
+enable secret UU@jmAJ7CaFE-67x
+enable password UU@jmAJ7CaFE-67x
+enable password encryption
+username admin password UU@jmAJ7CaFE-67x
+line con 0 
+password UU@jmAJ7CaFE-67x
+login local
+logging synchronous
+exit
+line vty 0 15 
+password UU@jmAJ7CaFE-67x
+login local
+logging synchronous
+exit
+crypto key generate rsa 
+1024
+line vty 0 15
+transport input ssh
+exit
+
+ipv6 unicast-routing
+
+interface FastEthernet0/0
+encapsulation dot1Q 0
+ipv6 address 2001:db8:1::1/64
+
+interface FastEthernet0/1
+encapsulation dot1Q 1
+ipv6 address 2001:db8:2::1/64
+
+interface FastEthernet0/2
+encapsulation dot1Q 2
+ipv6 address 2001:db8:3::1/64
+
+interface FastEthernet0/3
+encapsulation dot1Q 3
+ipv6 address 2001:db8:4::1/64
+
+interface FastEthernet0/4
+encapsulation dot1Q 4
+ipv6 address 2001:db8:5::1/64
+
+interface FastEthernett0/5
+encapsulation dot1Q 5
+ipv6 address 2001:db8:6::1/64
+
+interface FastEthernet0/6
+encapsulation dot1Q 6
+ipv6 address 2001:db8:7::1/64
+
+interface FastEthernet0/7
+encapsulation dot1Q 7
+ipv6 address 2001:db8:8::1/64
+
+interface FastEthernet0/8
+encapsulation dot1Q 8
+ipv6 address 2001:db8:9::1/64
+
+interface FastEthernet0/9
+encapsulation dot1Q 9
+ipv6 address 2001:db8:10::1/64
+
+interface FastEthernett0/10
+encapsulation dot1Q 10
+ipv6 address 2001:db8:11::1/64
+
+interface FastEthernet0/11
+encapsulation dot1Q 11
+ipv6 address 2001:db8:12::1/64
+
+interface FastEthernet0/12
+encapsulation dot1Q 12
+ipv6 address 2001:db8:13::1/64
+
+interface FastEthernet0/13
+encapsulation dot1Q 13
+ipv6 address 2001:db8:14::1/64
+
+interface FastEthernet0/14
+encapsulation dot1Q 14
+ipv6 address 2001:db8:15::1/64
+
+
+interface FastEthernet0/15
+encapsulation dot1Q 15
+ipv6 address 2001:db8:16::1/64
+
+interface FastEthernet0/16
+encapsulation dot1Q 16
+ipv6 address 2001:db8:17::1/64
+
+
+interface FastEthernet0/17
+encapsulation dot1Q 17
+ipv6 address 2001:db8:18::1/64
+
+
+interface FastEthernet0/18
+encapsulation dot1Q 18
+ipv6 address 2001:db8:19::1/64
+
+
+interface FastEthernet0/19
+encapsulation dot1Q 19
+ipv6 address 2001:db8:20::1/64
+
+
+interface FastEthernet0/20
+encapsulation dot1Q 20
+ipv6 address 2001:db8:14::1/64
