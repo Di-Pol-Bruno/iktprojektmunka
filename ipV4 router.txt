@@ -1,0 +1,183 @@
+ena
+conf t
+host R1
+ip domain-name egyetem.net
+banner motd "te itt be nem."
+enable secret UU@jmAJ7CaFE-67x
+enable password UU@jmAJ7CaFE-67x
+enable password encryption
+username admin password UU@jmAJ7CaFE-67x
+line con 0 
+password UU@jmAJ7CaFE-67x
+login local
+logging synchronous
+exit
+line vty 0 15 
+password UU@jmAJ7CaFE-67x
+login local
+logging synchronous
+exit
+crypto key generate rsa 
+1024
+
+int f0/.
+encapsulation dot1q 
+ip add 
+exit
+
+
+
+
+int g0/0/1.1
+encapsulation dot1q 1
+ip add 192.168.23.129 255.255.255.224
+exit
+int g0/0/1.2
+encapsulation dot1q 2
+ip add 192.168.23.161 255.255.255.224
+exit
+int g0/0/1.3
+encapsulation dot1q 3
+ip add 192.168.23.193 255.255.255.224
+exit
+int g0/0/1.4
+encapsulation dot1q 4
+ip add 192.168.23.225 255.255.255.224
+exit
+int g0/0/1.5
+encapsulation dot1q 5
+ip add 192.168.24.1 255.255.255.224
+exit
+int g0/0/1.6
+encapsulation dot1q 6
+ip add 192.168.24.33 255.255.255.224
+exit
+int g0/0/1.7
+encapsulation dot1q 7
+ip add 192.168.24.65 255.255.255.224
+exit
+int g0/0/1.8
+encapsulation dot1q 8
+ip add 192.168.24.97 255.255.255.224
+exit
+int g0/0/1.9
+encapsulation dot1q 9
+ip add 192.168.24.129 255.255.255.224
+exit
+int g0/0/1.10
+encapsulation dot1q 10
+ip add 192.168.24.161 255.255.255.224
+exit
+int g0/0/1.200
+encapsulation dot1q 200
+ip add 192.168.22.1 255.255.255.128
+exit
+int g0/0/1.255
+encapsulation dot1q 255
+ip add 192.168.23.65 255.255.255.192
+exit
+int g0/0/1.300
+encapsulation dot1q 300
+ip add 192.168.22.129 255.255.255.128
+exit
+int g0/0/1.500
+encapsulation dot1q 500
+ip add 192.168.23.1 255.255.255.192
+exit
+
+
+
+
+
+
+
+ip dhcp excluded-address 192.168.22.1
+ip dhcp excluded-address 192.168.22.129
+ip dhcp excluded-address 192.168.23.1
+ip dhcp excluded-address 192.168.23.65
+ip dhcp excluded-address 192.168.23.129
+ip dhcp excluded-address 192.168.23.161
+ip dhcp excluded-address 192.168.23.193
+ip dhcp excluded-address 192.168.23.225
+ip dhcp excluded-address 192.168.24.1
+ip dhcp excluded-address 192.168.24.33
+ip dhcp excluded-address 192.168.24.65
+ip dhcp excluded-address 192.168.24.97
+ip dhcp excluded-address 192.168.24.129
+ip dhcp excluded-address 192.168.24.161
+
+
+ip dhcp pool tanari
+network 192.168.22.0 255.255.255.128
+default-router 192.168.22.1
+exit
+ip dhcp pool wifi
+network 192.168.22.128 255.255.255.128
+default-router 192.168.22.129
+exit
+ip dhcp pool eloadoi
+network 192.168.23.0 255.255.255.192
+default-router 192.168.23.1
+exit
+ip dhcp pool admin
+network 192.168.23.64 255.255.255.192
+default-router 192.168.23.65
+exit
+ip dhcp pool gep1
+network 192.168.23.128 255.255.255.224
+default-router 192.168.23.129
+exit
+ip dhcp pool gep2
+network 192.168.23.160 255.255.255.224
+default-router 192.168.23.161
+exit
+ip dhcp pool gep3
+network 192.168.23.192 255.255.255.224
+default-router 192.168.23.193
+exit
+ip dhcp pool gep4
+network 192.168.23.224 255.255.255.224
+default-router 192.168.23.225
+exit
+ip dhcp pool gep5
+network 192.168.24.0 255.255.255.224
+default-router 192.168.24.1
+exit
+ip dhcp pool gep6
+network 192.168.24.32 255.255.255.224
+default-router 192.168.24.33
+exit
+ip dhcp pool gep7
+network 192.168.24.64 255.255.255.224
+default-router 192.168.24.65
+exit
+ip dhcp pool gep8
+network 192.168.24.96 255.255.255.224
+default-router 192.168.24.97
+exit
+ip dhcp pool gep9
+network 192.168.24.128 255.255.255.224
+default-router 192.168.24.129
+exit
+ip dhcp pool gep10
+network 192.168.24.160 255.255.255.224
+default-router 192.168.24.161
+exit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
