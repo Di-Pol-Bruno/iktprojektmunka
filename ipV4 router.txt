@@ -20,13 +20,6 @@ exit
 crypto key generate rsa 
 1024
 
-int f0/.
-encapsulation dot1q 
-ip add 
-exit
-
-
-
 
 int g0/0/1.1
 encapsulation dot1q 1
