@@ -1,0 +1,62 @@
+R1
+enable
+configure terminal
+host R1
+ip domain-name egyetem.net
+no ip domain-lookup
+banner motd "te itt be nem."
+enable secret UU@jmAJ7CaFE-67x
+enable password UU@jmAJ7CaFE-67x
+enable password encryption
+username admin password UU@jmAJ7CaFE-67x
+service password-encryption
+ip ssh version 2
+line vty 0 15
+login local
+transport input ssh
+password UU@jmAJ7CaFE-67x
+logging synchronous
+exit
+crypto key generate rsa 
+1024
+interface Gi0/0.10
+encapsulation dot1q 10
+ip address 192.168.10.1 255.255.255.0
+standby 10 ip 192.168.10.254
+standby 10 priority 110
+standby 10 preempt
+interface Gi0/0.20
+encapsulation dot1q 20
+ip address 192.168.20.1 255.255.255.0
+standby 20 ip 192.168.20.254
+standby 20 priority 110
+standby 20 preempt
+interface Gi0/0.30
+encapsulation dot1q 30
+ip address 192.168.30.1 255.255.255.0
+interface Gi0/0.40
+encapsulation dot1q 40
+ip address 192.168.40.1 255.255.255.0
+interface Gi0/0.50
+encapsulation dot1q 50
+ip address 192.168.50.1 255.255.255.0
+interface Gi0/0.99
+encapsulation dot1q 99
+ip address 192.168.99.1 255.255.255.0
+ip routing
+ip dhcp pool VLAN10
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.1
+ipv6 unicast-routing
+interface Gi0/0.100
+encapsulation dot1q 100
+ipv6 address 2001:db8:acab:100::1/64
+interface Gi0/0.10
+encapsulation dot1q 10
+ip address 192.168.10.1 255.255.255.0
+standby 10 ip 192.168.10.254
+standby 10 priority 110
+standby 10 preempt
+ip dhcp pool VLAN10
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.1

@@ -1,0 +1,127 @@
+enable
+configure terminal
+host gepszoba
+ip domain-name egyetem.net
+no ip domain-lookup
+banner motd "te itt be nem."
+enable secret UU@jmAJ7CaFE-67x
+enable password UU@jmAJ7CaFE-67x
+enable password encryption
+username admin password UU@jmAJ7CaFE-67x
+service password-encryption
+ip ssh version 2
+line vty 0 15
+login local
+transport input ssh
+password UU@jmAJ7CaFE-67x
+logging synchronous
+exit
+crypto key generate rsa 
+1024
+int vlan 255
+ip add 192.168.23.66
+exit
+ip default-gateway 192.168.23.65
+vlan 1
+name gepszoba1
+vlan 2
+name gepszoba2
+vlan 3
+name gepszoba3
+vlan 4
+name gepszoba4
+vlan 5
+name gepszoba5
+vlan 6
+name gepszoba6
+vlan 7
+name gepszoba7
+vlan 8
+name gepszoba8
+vlan 9
+name gepszoba9
+vlan 10
+name gepszoba10
+vlan 11
+name gepszoba11
+vlan 12
+name gepszoba12
+vlan 13
+name gepszoba13
+vlan 14
+name gepszoba14
+vlan 15
+name gepszoba15
+vlan 16
+name gepszoba16
+vlan 17
+name gepszoba17
+vlan 18
+name gepszoba18
+vlan 19
+name gepszoba19
+vlan 20
+name gepszoba20
+vlan 200
+name tanari
+vlan 255
+name admin
+vlan 300
+name wifi
+vlan 400
+name passive
+vlan 500
+name eloado
+vlan 900
+name native
+int f0/1-20
+switchport mode access
+switchport access vlan 1
+exit
+int g0/1
+switchport mode trunk
+switchport trunk native vlan 900
+switchport trunk allowed vlan 1,255
+spanning-tree mode rapid-pvst
+spanning-tree vlan 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,200,255,300,400,500,900 priority 4096     
+interface range Gi0/1 - 24
+switchport port-security
+switchport port-security maximum 2
+switchport port-security violation restrict
+interface range Gi0/1 - 8
+switchport access vlan 10
+interface range Gi0/9 - 10
+switchport access vlan 20
+interface range Gi0/11 - 14
+switchport access vlan 30
+interface range Gi0/15 - 16
+switchport access vlan 40
+interface Gi0/25
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk native vlan 99
+switchport trunk allowed vlan 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,200,255,300,400,500,900
+interface Port-channel1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,200,255,300,400,500,900
+interface range Gi0/47 - 48
+channel-group 1 mode active
+interface range Gi0/17 - 19
+switchport access vlan 50
+interface range Gi0/20 - 24
+switchport access vlan 100
+shutdown
+interface range Gi0/47-48
+channel-group 1 mode active
+interface Port-channel1
+switchport mode trunk
+switchport trunk allowed vlan 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,200,255,300,400,500,900
+interface range Gi0/47-48
+channel-group 1 mode active
+interface Port-channel1
+switchport mode trunk
+switchport trunk allowed vlan 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,200,255,300,400,500,900
+spanning-tree vlan 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,200,255,300,400,500,900 priority 4096
+interface range Gi0/20-24
+shutdown

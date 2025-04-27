@@ -1,0 +1,30 @@
+R2
+enable
+configure terminal
+host R2
+ip domain-name egyetem.net
+no ip domain-lookup
+banner motd "te itt be nem."
+enable secret UU@jmAJ7CaFE-67x
+enable password UU@jmAJ7CaFE-67x
+enable password encryption
+username admin password UU@jmAJ7CaFE-67x
+service password-encryption
+ip ssh version 2
+line vty 0 15
+login local
+transport input ssh
+password UU@jmAJ7CaFE-67x
+logging synchronous
+exit
+crypto key generate rsa 
+1024
+interface Gi0/0.10
+encapsulation dot1q 10
+ip address 192.168.10.2 255.255.255.0
+standby 10 ip 192.168.10.254
+standby 10 priority 100
+standby 10 preempt
+ipv6 dhcp pool VLAN100
+address prefix 2001:db8:acab:100::/64
+dns-server 2001:4860:4860::8888
